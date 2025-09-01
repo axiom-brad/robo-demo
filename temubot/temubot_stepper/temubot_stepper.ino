@@ -26,16 +26,17 @@ void setup() {
   // Initialize the serial port:
   Serial.begin(9600);
   Serial.setTimeout(10);  // ms
-  Serial.println("Enter TemuBot Command:");
+  Serial.println("TemuBot Ready");
 }
 
 void move(float relative_move, int id, Stepper *motor, float *angle) {
   *angle += relative_move;
-  Serial.print("moving motor ");
-  Serial.print(id);
-  Serial.print(" to angle ");
-  Serial.println(*angle);
   motor->step(relative_move / 360.0 * steps_per_rev);
+  Serial.print("motor ");
+  Serial.print(id);
+  Serial.print(" moved to angle ");
+  Serial.println(*angle);
+
 }
 
 void loop() {
@@ -46,25 +47,25 @@ void loop() {
     if (command.equals("ping")) {
       Serial.println("OK");
     } else if (command.equals("get angle 1")) {
-      Serial.print("angle 1 is ");
+      Serial.print("motor angle 1 is ");
       Serial.println(angle1);
     } else if (command.equals("get angle 2")) {
-      Serial.print("angle 2 is ");
+      Serial.print("motor angle 2 is ");
       Serial.println(angle2);
     } else if (command.equals("get angle 3")) {
-      Serial.print("angle 3 is ");
+      Serial.print("motor angle 3 is ");
       Serial.println(angle3);
     } else if (command.equals("reset motor 1")) {
       angle1 = 0.0;
-      Serial.print("angle 1 is ");
+      Serial.print("motor angle 1 is ");
       Serial.println(angle1);
     } else if (command.equals("reset motor 2")) {
       angle2 = 0.0;
-      Serial.print("angle 2 is ");
+      Serial.print("motor angle 2 is ");
       Serial.println(angle2);
     } else if (command.equals("reset motor 3")) {
       angle3 = 0.0;
-      Serial.print("angle 3 is ");
+      Serial.print("motor angle 3 is ");
       Serial.println(angle3);
     } else if (command.startsWith("move motor 1 rel ")) {
       // Relative move in degrees, e.g. move motor 1 rel 90.0
