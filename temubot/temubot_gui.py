@@ -12,6 +12,7 @@ import serial
 import threading
 import time
 import tkinter as tk
+from tkinter import messagebox
 
 
 class SerialApp:
@@ -248,7 +249,7 @@ class SerialApp:
             )
             self.serial_reader_thread.start()
         except serial.SerialException as e:
-            tk.messagebox.showerror(
+            messagebox.showerror(
                 "Serial Connection Error",
                 f"Failed to connect to {self.serial_port}:\n{e}",
             )
@@ -299,7 +300,7 @@ class SerialApp:
                     target=self.send_command, args=(command,), daemon=True
                 ).start()
             else:
-                tk.messagebox.showerror("Error", "Serial port is not connected.")
+                messagebox.showerror("Error", "Serial port is not connected.")
                 self.handle_timeout()  # Re-enable buttons immediately if no connection
 
     def set_button_state(self, state):
