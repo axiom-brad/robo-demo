@@ -29,6 +29,8 @@ TemuBot is a simple robot with 3 rotational joints powered by 3 stepper motors a
 
 ![TemuBot Diagram](temubot_diagram.png "TemuBot Diagram")
 
+![TemuBot Image](temubot_image.jpg "TemuBot Image")
+
 ## Commands & Responses
 
 Commands are sent to the Arduino as text strings through the serial port.
