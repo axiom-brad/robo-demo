@@ -13,6 +13,7 @@ TemuBot is a simple robot with 3 rotational joints powered by 3 stepper motors a
 
 ## Diagram
 
+<!--
 ```plantuml
 @startuml
 [Stepper Motor 1] -d-> [Motor Driver 1]
@@ -24,6 +25,9 @@ TemuBot is a simple robot with 3 rotational joints powered by 3 stepper motors a
 [Arduino] <=d=> [PC] : USB Serial + Power
 @enduml
 ```
+-->
+
+![TemuBot Diagram](temubot_diagram.png "TemuBot Diagram")
 
 ## Commands & Responses
 
