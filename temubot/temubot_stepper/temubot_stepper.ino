@@ -55,43 +55,43 @@ void loop() {
     } else if (command.equals("get angle 3")) {
       Serial.print("motor angle 3 is ");
       Serial.println(angle3);
-    } else if (command.equals("reset motor 1")) {
+    } else if (command.equals("reset angle 1")) {
       angle1 = 0.0;
       Serial.print("motor angle 1 is ");
       Serial.println(angle1);
-    } else if (command.equals("reset motor 2")) {
+    } else if (command.equals("reset angle 2")) {
       angle2 = 0.0;
       Serial.print("motor angle 2 is ");
       Serial.println(angle2);
-    } else if (command.equals("reset motor 3")) {
+    } else if (command.equals("reset angle 3")) {
       angle3 = 0.0;
       Serial.print("motor angle 3 is ");
       Serial.println(angle3);
-    } else if (command.startsWith("move motor 1 rel ")) {
-      // Relative move in degrees, e.g. move motor 1 rel 90.0
-      float relative_move = command.substring(17).toFloat();
+    } else if (command.startsWith("move motor 1 relative ")) {
+      // Relative move in degrees, e.g. move motor 1 relative 90.0
+      float relative_move = command.substring(22).toFloat();
       move(relative_move, 1, &motor1, &angle1);
-    } else if (command.startsWith("move motor 2 rel ")) {
-      // Relative move in degrees, e.g. move motor 2 rel 90.0
-      float relative_move = command.substring(17).toFloat();
+    } else if (command.startsWith("move motor 2 relative ")) {
+      // Relative move in degrees, e.g. move motor 2 relative 90.0
+      float relative_move = command.substring(22).toFloat();
       move(relative_move, 2, &motor2, &angle2);
-    } else if (command.startsWith("move motor 3 rel ")) {
-      // Relative move in degrees, e.g. move motor 3 rel 90.0
-      float relative_move = command.substring(17).toFloat();
+    } else if (command.startsWith("move motor 3 relative ")) {
+      // Relative move in degrees, e.g. move motor 3 relative 90.0
+      float relative_move = command.substring(22).toFloat();
       move(relative_move, 3, &motor3, &angle3);
-    } else if (command.startsWith("move motor 1 abs ")) {
-      // Absolute move in degrees, e.g. move motor 1 abs 90.0
-      float absolute_move = command.substring(17).toFloat();
+    } else if (command.startsWith("move motor 1 absolute ")) {
+      // Absolute move in degrees, e.g. move motor 1 absolute 90.0
+      float absolute_move = command.substring(22).toFloat();
       float relative_move = absolute_move - angle1;
       move(relative_move, 1, &motor1, &angle1);
-    } else if (command.startsWith("move motor 2 abs ")) {
-      // Absolute move in degrees, e.g. move motor 2 abs 90.0
-      float absolute_move = command.substring(17).toFloat();
+    } else if (command.startsWith("move motor 2 absolute ")) {
+      // Absolute move in degrees, e.g. move motor 2 absolute 90.0
+      float absolute_move = command.substring(22).toFloat();
       float relative_move = absolute_move - angle2;
       move(relative_move, 2, &motor2, &angle2);
-    } else if (command.startsWith("move motor 3 abs ")) {
-      // Absolute move in degrees, e.g. move motor 3 abs 90.0
-      float absolute_move = command.substring(17).toFloat();
+    } else if (command.startsWith("move motor 3 absolute ")) {
+      // Absolute move in degrees, e.g. move motor 3 absolute 90.0
+      float absolute_move = command.substring(22).toFloat();
       float relative_move = absolute_move - angle3;
       move(relative_move, 3, &motor3, &angle3);
     } else {
