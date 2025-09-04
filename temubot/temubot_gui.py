@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
+"""
+This program creates a graphical user interface (GUI) in Python for a Linux environment.
+It features three interactive sliders and buttons for serial communication.
 
-# This program creates a graphical user interface (GUI) in Python for a Linux environment.
-# It features three interactive sliders and buttons for serial communication.
-#
-# Requirements:
-# - Python 3
-# - Tkinter (usually included with Python 3)
-# - pyserial library (install with 'sudo apt install python3-serial')
+Requirements:
+- Python 3
+- Tkinter (usually included with Python 3)
+- pyserial library (install with 'sudo apt install python3-serial')
+"""
 
 import serial
 import threading
