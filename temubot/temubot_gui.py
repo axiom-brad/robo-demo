@@ -18,9 +18,11 @@ from tkinter import messagebox
 import serial
 
 
+# pylint: disable=too-many-instance-attributes
 class SerialApp:
     """A GUI application for controlling and monitoring a serial device."""
 
+    # pylint: disable=redefined-outer-name
     def __init__(self, root):
         self.root = root
         self.root.title("Motor Control & Serial Monitor")
@@ -38,6 +40,7 @@ class SerialApp:
         self.setup_gui()
         self.setup_serial()
 
+    # pylint: disable=too-many-locals
     def setup_gui(self):
         """Builds the main GUI layout with sliders, buttons, and a serial monitor."""
         main_frame = tk.Frame(self.root, bg="#34495e", padx=20, pady=20)
@@ -272,7 +275,7 @@ class SerialApp:
 
     def serial_reader(self):
         """A dedicated thread function to continuously read and display serial data."""
-        while not self.stop_event.is_set():
+        while not self.stop_event.is_set():  # pylint: disable=too-many-nested-blocks
             if self.ser and self.ser.is_open:
                 try:
                     # Check if there is data available to read
@@ -286,7 +289,7 @@ class SerialApp:
                     else:
                         # Sleep for a short while to prevent a busy loop
                         time.sleep(0.01)
-                except Exception as e:
+                except Exception as e:  # pylint: disable=broad-exception-caught
                     self.append_to_display(f"Communication error: {e}")
                     self.stop_event.set()
 
@@ -323,7 +326,7 @@ class SerialApp:
         try:
             self.append_to_display(f"Sending: {command.strip()}")
             self.ser.write(command.encode("utf-8"))
-        except Exception as e:
+        except Exception as e:  # pylint: disable=broad-exception-caught
             self.append_to_display(f"Communication error: {e}")
             self.root.after_idle(
                 self.handle_timeout
