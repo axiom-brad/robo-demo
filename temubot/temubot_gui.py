@@ -9,11 +9,13 @@ Requirements:
 - pyserial library (install with 'sudo apt install python3-serial')
 """
 
-import serial
+
 import threading
 import time
 import tkinter as tk
 from tkinter import messagebox
+
+import serial
 
 
 class SerialApp:
